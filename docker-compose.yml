@@ -10,7 +10,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U odoo_user -d odoo_db"]
   web:
-    image: odoo:18.0
+    image: odoo:18
     depends_on:
       mydb:
         condition: service_healthy
