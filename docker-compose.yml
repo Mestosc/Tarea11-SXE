@@ -22,8 +22,6 @@ services:
       - PASSWORD=contrasena
     volumes:
         - odoo-web-data:/var/lib/odoo
-        - ./config:/etc/odoo
-        - ./addons:/mnt/extra-addons
   pgadmin:
         image: dpage/pgadmin4
         ports:
