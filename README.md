@@ -17,4 +17,13 @@ Ademas si hay fallo al correr los contendores
 ![ejemplo con fallos](image-2.png)
 
 ## Instalacion de Odoo
+Aqui muestro la pantalla inicial de Odoo despues de rellenar los datos solicitados
+![pantalla_incial](image-4.png)
+
+## Base de datos en pg_admin
+![Base de datos](image-5.png)
+![mas base datos](image-6.png)
+
+## Instalacion de los modulos
+![aplicaciones odoo instaladas](image-7.png)
 
