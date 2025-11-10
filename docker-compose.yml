@@ -2,7 +2,7 @@ services:
   mydb:
     image: postgres:15
     environment:
-      - POSTGRES_DB=odoo_db
+      - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=contrasena
       - POSTGRES_USER=odoo_user
     volumes:
@@ -21,7 +21,7 @@ services:
       - PASSWORD=contrasena
     volumes:
         - odoo-web-data:/var/lib/odoo
-    command: odoo -d odoo_db -i base
+    #command: odoo -d odoo_db
   pgadmin:
         image: dpage/pgadmin4
         ports:
