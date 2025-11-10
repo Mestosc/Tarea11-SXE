@@ -1,0 +1,45 @@
+services:
+  mydb:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=odoo_db
+      - POSTGRES_PASSWORD=contrasena
+      - POSTGRES_USER=odoo_user
+    volumes:
+        - odoo-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo_user -d odoo_db"]
+  web:
+    image: odoo:18.0
+    depends_on:
+      mydb:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=mydb
+      - USER=odoo_user
+      - PASSWORD=contrasena
+    volumes:
+        - odoo-web-data:/var/lib/odoo
+        - ./config:/etc/odoo
+        - ./addons:/mnt/extra-addons
+  pgadmin:
+        image: dpage/pgadmin4
+        ports:
+                - "8000:80"
+        environment:
+              -  PGADMIN_DEFAULT_EMAIL=oscar@pruebas.com
+              -  PGADMIN_DEFAULT_PASSWORD=contrasenaPrueba
+        volumes:
+               - pg_data:/var/lib/pgadmin
+               - pg_servers:/pgadmin4/servers.json
+        depends_on:
+                - mydb
+volumes:
+        odoo-web-data:
+        odoo-db-data:
+        pg_data:
+        pg_servers:
+
+        
