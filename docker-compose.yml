@@ -12,8 +12,7 @@ services:
   web:
     image: odoo:18
     depends_on:
-      mydb:
-        condition: service_healthy
+      - mydb
     ports:
       - "8069:8069"
     environment:
@@ -22,6 +21,7 @@ services:
       - PASSWORD=contrasena
     volumes:
         - odoo-web-data:/var/lib/odoo
+    command: odoo -d odoo_db -i base
   pgadmin:
         image: dpage/pgadmin4
         ports:
