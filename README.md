@@ -27,3 +27,10 @@ Aqui muestro la pantalla inicial de Odoo despues de rellenar los datos solicitad
 ## Instalacion de los modulos
 ![aplicaciones odoo instaladas](image-7.png)
 
+## Vista de Datos en modulos
+### Ventas
+![ventas](image-8.png)
+### Compras
+![compras](image-9.png)
+### Contactos
+![contactos](image-10.png)
